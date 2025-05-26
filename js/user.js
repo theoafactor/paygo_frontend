@@ -25,6 +25,45 @@ window.addEventListener('DOMContentLoaded', async function(event){
     }
 
 
+
+    // Handle Image Uploading
+    let uploadprofile = document.querySelector("#upload_profile");
+
+    uploadprofile.addEventListener("input", function(){
+
+        const image_file = this.files.item(0);
+
+        console.log(image_file);
+
+        const allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/heic']
+
+        const image_type = image_file.type;
+
+
+        if(allowed_types.includes(image_type)){
+            //proceed
+        let image_file_reader = new FileReader();
+
+        image_file_reader.readAsDataURL(image_file);
+
+        image_file_reader.onload = function(){
+
+                image_loaded = this.result;
+                
+                document.querySelector("#image-info").innerHTML = `<img src='${image_loaded}' width="75">`
+            
+
+        }
+
+
+        }else{
+            //wrong image format
+        
+        }
+
+        })
+
+
 })
 
 

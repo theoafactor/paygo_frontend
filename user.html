@@ -4,12 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PayGo | User</title>
+    <style>
+        #upload_profile{
+            display: none;
+        }
+
+        .btn{
+            border: 1px solid teal;
+            color: white;
+            background-color: teal;
+            padding: 2px;
+            margin-bottom: 5px;
+        }
+
+        .form-group{
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
     <div class="wrapper">
         <h3>Welcome <span id="user-info"></span></h3>
         <hr> 
+        <div style="width: 25%; border: 2px solid black;">
+            <div id="image-info"><img src="./assets/img/purepng.com-green-applesappleapplesfruitsweetgreen-apple-1701527184257wqjbl.png" width="75" alt="profile_image"></div>
+            <form action="http://localhost:1233/upload_profile" class="form" method="POST" enctype="multipart/form-data">
+                <label for="upload_profile" class="btn" id="upload-image-label">Change profile image</label>
+                <div class="form-group">
+                    <input type="file" name="upload_profile" id="upload_profile">
+                </div>
+                <div class="form-group">
+                    <button type="submit" >Save</button>
+                </div>
+            </form>
+        </div>
         <ul>
             <li><a href="">Make Payment</a></li>
             <li><a href="">Profile Settings</a></li>
@@ -17,8 +46,8 @@
         </ul>
         
     </div>
-    
-    <script src="js/user.js"></script>
+
     <script src="thirdparties/localforage.min.js"></script>
+    <script src="js/user.js"></script>
 </body>
 </html>
