@@ -41,9 +41,14 @@ function end_spinner(with_message = null){
                 end_spinner();
 
                 // set the token in the storage
-                // do auths activities ..
+                let stored_data = await localforage.setItem("_paygo_user", feedback.data.data);
 
-                location.href="/user.html";
+                if(stored_data){
+                    // do auths activities ..
+                    location.href="/user.html";
+                }
+
+            
                 
             }else{
                 // the user does not exist
